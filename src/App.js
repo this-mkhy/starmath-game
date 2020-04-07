@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState} from 'react';
 import './App.css';
 
+import Game from './components/Game';
+
+//to reset: using key attribute to unmount a component and remount it again and clean up its side effect and give a new state 
+const StarMatch = () => {
+	const [gameId, setGameId] = useState(1);
+	return <Game key={gameId} startNewGame={() => setGameId(gameId + 1)}/>;
+}
+
+export default StarMatch;
+
+/*
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StarMatch />
     </div>
   );
 }
 
 export default App;
+*/
